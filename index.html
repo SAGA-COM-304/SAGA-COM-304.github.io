@@ -1,1 +1,81 @@
-Hello, World !
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mon projet – Accueil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header & navigation -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#" class="logo">LOGO</a>
+      <button class="nav-toggle" aria-label="Ouvrir la navigation">
+        ☰
+      </button>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#à-propos">À propos</a></li>
+          <li><a href="#projets">Projets</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" id="accueil">
+    <div class="container">
+      <h1>Bienvenue sur notre modèle</h1>
+      <p>Une présentation simple et épurée inspirée du 4M EPFL.</p>
+      <a href="#projets" class="btn">Découvrir</a>
+    </div>
+  </section>
+
+  <!-- Section de cartes -->
+  <main class="container projets" id="projets">
+    <h2>Nos projets</h2>
+    <div class="grid">
+      <!-- Exemple de carte -->
+      <article class="card">
+        <h3>Projet 1</h3>
+        <p>Brève description de votre projet.</p>
+        <a href="#" class="card-link">En savoir plus</a>
+      </article>
+      <article class="card">
+        <h3>Projet 2</h3>
+        <p>Brève description de votre projet.</p>
+        <a href="#" class="card-link">En savoir plus</a>
+      </article>
+      <article class="card">
+        <h3>Projet 3</h3>
+        <p>Brève description de votre projet.</p>
+        <a href="#" class="card-link">En savoir plus</a>
+      </article>
+      <article class="card">
+        <h3>Projet 4</h3>
+        <p>Brève description de votre projet.</p>
+        <a href="#" class="card-link">En savoir plus</a>
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Mon Équipe – Tous droits réservés</p>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Vie privée</a></li>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
