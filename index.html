@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>nano4M – Minimalist Multimodal Model</title>
-  <meta name="description" content="nano4M project – minimalist any‑to‑any model (COM‑304, EPFL). Explore capabilities, extensions, and results." />
+  <title>nano4M – Minimalist Multimodal Prototype</title>
+  <meta name="description" content="nano4M – COM-304 project page. Dataset pipeline, tokenisers and preliminary multimodal Transformer results." />
+
   <!-- Open Graph -->
-  <meta property="og:title" content="nano4M – Minimalist Multimodal Model" />
-  <meta property="og:description" content="Project page for nano4M (COM‑304, EPFL)." />
+  <meta property="og:title" content="nano4M – Minimalist Multimodal Prototype" />
+  <meta property="og:description" content="COM-304 project page: dataset pipeline, tokenisers and early results." />
   <meta property="og:image" content="images/og_cover.jpg" />
   <meta property="og:type" content="website" />
 
@@ -36,55 +37,28 @@
     };
   </script>
 
-  <!-- Extra utility classes & small tweaks -->
+  <!-- Utility tweaks -->
   <style>
-    .nav-link {
-      position: relative;
-      padding-bottom: 4px;
-      transition: color 0.3s ease;
-    }
-    .nav-link::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: 0;
-      left: 0;
-      background-color: currentColor;
-      transition: width 0.3s ease;
-    }
-    .nav-link:hover::after,
-    .nav-link[aria-current="page"]::after {
-      width: 100%;
-    }
-    .card-hover {
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .card-hover:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-    }
-    /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #6b7280;
-      border-radius: 9999px;
-    }
+    .nav-link{position:relative;padding-bottom:4px;transition:color .3s;}
+    .nav-link::after{content:"";position:absolute;width:0;height:2px;bottom:0;left:0;background:currentColor;transition:width .3s;}
+    .nav-link:hover::after,[aria-current="page"].nav-link::after{width:100%;}
+    .card-hover{transition:transform .25s,box-shadow .25s;}
+    .card-hover:hover{transform:translateY(-6px);box-shadow:0 12px 24px rgba(0,0,0,.15);}
+    ::-webkit-scrollbar{width:8px;}::-webkit-scrollbar-thumb{background:#6b7280;border-radius:9999px;}
   </style>
 </head>
+
 <body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 font-sans relative">
+  <!-- Skip link -->
   <a href="#main" class="sr-only focus:not-sr-only absolute top-0 left-0 m-2 px-3 py-2 rounded-lg bg-white text-brand-600 dark:bg-gray-800 dark:text-brand-400 z-50">Skip to content</a>
+
   <!-- Navbar -->
   <header class="sticky top-0 z-50 w-full backdrop-blur bg-white/90 dark:bg-gray-900/90 shadow-md">
     <div class="max-w-7xl mx-auto flex items-center justify-between px-4 py-3">
-      <!-- Logo -->
       <a href="https://www.epfl.ch" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2" aria-label="EPFL home">
         <img src="https://www.epfl.ch/wp-content/themes/wp-theme-2018/assets/svg/epfl-logo.svg" alt="EPFL logo" class="h-8" loading="lazy" />
       </a>
 
-      <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center space-x-8 lg:space-x-10 text-sm font-medium">
         <a href="#introduction" class="nav-link">Introduction</a>
         <a href="#capabilities" class="nav-link">Capabilities</a>
@@ -94,7 +68,6 @@
         <a href="#references" class="nav-link">References</a>
       </nav>
 
-      <!-- Controls -->
       <div class="flex items-center gap-3">
         <!-- Dark mode toggle -->
         <button id="dark-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none" aria-label="Toggle dark mode">
@@ -106,7 +79,7 @@
           </svg>
         </button>
 
-        <!-- Hamburger -->
+        <!-- Burger -->
         <button id="menu-button" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none" aria-label="Open menu">
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
@@ -115,7 +88,7 @@
       </div>
     </div>
 
-    <!-- Mobile Nav -->
+    <!-- Mobile nav -->
     <nav id="mobile-nav" class="md:hidden max-h-0 overflow-hidden transition-[max-height] duration-300 text-sm font-medium px-4">
       <div class="flex flex-col py-3 gap-3">
         <a href="#introduction" class="nav-link">Introduction</a>
@@ -131,11 +104,11 @@
   <!-- Hero -->
   <section class="relative overflow-hidden bg-brand-500 text-white">
     <svg class="absolute inset-0 w-full h-full object-cover opacity-20" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1463 360" aria-hidden="true">
-      <path fill="currentColor" d="M-82.673 72.249c70.665-4.183 134.833 41.899 200.73 72.997 100.895 47.676 217.861 63.259 316.704 14.985 138.659-65.846 254.091-245.721 396.898-240.006 105.89 4.271 171.479 127.1 254.258 186.087 93.196 66.424 216.399 56.62 326.026 38.115 36.249-5.993 147.36-48.106 160.415-15.18C1603.27 242.96 1256.46 471.05 950.12 488.23 646.025 505.218 458.88 310.348 219.58 287.278 133.329 279.12 32.544 328.913-39.303 278.6c-66.829-47.576-50.224-179.8 56.63-206.35z" />
+      <path fill="currentColor" d="M-82.673 72.249c70.665-4.183 134.833 41.899 200.73 72.997 100.895 47.676 217.861 63.259 316.704 14.985 138.659-65.846 254.091-245.721 396.898-240.006 105.89 4.271 171.479 127.1 254.258 186.087 93.196 66.424 216.399 56.62 326.026 38.115 36.249-5.993 147.36-48.106 160.415-15.18C1603.27 242.96 1256.46 471.05 950.12 488.23 646.025 505.218 458.88 310.348 219.58 287.278 133.329 279.12 32.544 328.913-39.303 278.6c-66.829-47.576-50.224-179.8 56.63-206.35z"/>
     </svg>
     <div class="relative max-w-7xl mx-auto px-4 py-24 text-center">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4">nano4M Project</h1>
-      <p class="max-w-2xl mx-auto text-lg sm:text-xl mb-8">A minimalist any‑to‑any multimodal model built for EPFL’s COM‑304 course.</p>
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl mb-8">A minimalist multimodal prototype built for EPFL’s COM-304 course.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="#capabilities" class="inline-block px-6 py-3 text-base font-semibold rounded-lg bg-white/10 backdrop-blur hover:bg-white/20 border border-white">Discover more</a>
         <a href="https://github.com/SAGA-COM-304/SAGA_COM-304" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-base font-semibold rounded-lg bg-white text-brand-600 hover:bg-gray-100">GitHub ↗</a>
@@ -143,40 +116,44 @@
     </div>
   </section>
 
+  <!-- Main -->
   <main id="main">
     <!-- Introduction -->
     <section id="introduction" class="max-w-5xl mx-auto px-4 py-16">
       <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Introduction</h2>
-      <aside class="bg-brand-50 dark:bg-gray-800/50 border-l-4 border-brand-500 p-6 rounded-lg shadow-md mb-8 max-w-3xl mx-auto">
-        <h3 class="text-xl font-semibold mb-2 text-gray-900 dark:text-gray-100">TL;DR</h3>
-        <ul class="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-          <li>Minimalist any‑to‑any multimodal model for text, image, audio &amp; video.</li>
-          <li>Extensions add audio &amp; video modalities</li>
-          <li>Create a new dataset from VggSound dataset (youtube videos) to combine audio and video</li>
-          <li>Used depth-to-anything to convert rgb to depth image / mimi tokenizer for audio and Cosmos Tokenizer for audio / video</li>
-        </ul>
-      </aside>
-      <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-center max-w-3xl mx-auto">The <strong>nano4M</strong> project, developed for the COM-304 course at EPFL, is a minimalist multimodal 
-         model inspired by 4M. It excels in diverse tasks, supports fine-tuning for specialized applications, and enables flexible any‑to‑any multimodal generation.</p>
-      <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-center max-w-3xl mx-auto">Our work includes a causal Transformer for text generation, an encoder-only Transformer for image generation, and a multimodal encoder-decoder for tasks like in-painting and cross-modal generation. We enhanced nano4M with innovative extensions to push its capabilities further.</p>
+
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-6 text-center max-w-3xl mx-auto">
+        The <strong>nano4M</strong> project, developed for the COM-304 course at EPFL, is a minimalist multimodal
+        model inspired by 4M. It excels in diverse tasks, supports fine-tuning for specialized applications, and enables flexible any-to-any multimodal generation.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-center max-w-3xl mx-auto">
+        Our work includes a causal Transformer for text generation, an encoder-only Transformer for image generation,
+        and a multimodal encoder-decoder for tasks like in-painting and cross-modal generation.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-center max-w-3xl mx-auto">
+        For the extensions, our initial goal was to synchronize audio and video generation and implement tokenizers from scratch.
+      </p>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-center max-w-3xl mx-auto">
+        This page summarises the pipeline, the prototype architecture, and the early—still rough—results.
+      </p>
     </section>
 
-    <!-- Capabilities -->
+    <!-- Capabilities (unchanged) -->
     <section id="capabilities" class="bg-gray-50 dark:bg-gray-800 py-16">
       <div class="max-w-7xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Model Capabilities</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div class="card-hover bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Text Generation</h3>
-            <p class="text-gray-700 dark:text-gray-300">A decoder-only Transformer enables autoregressive text generation, trained on a simple dataset to produce coherent text sequences.</p>
+            <p class="text-gray-700 dark:text-gray-300">A decoder-only Transformer enables autoregressive text generation, trained on a simple dataset to produce coherent sequences.</p>
           </div>
           <div class="card-hover bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Image Generation</h3>
-            <p class="text-gray-700 dark:text-gray-300">An encoder-only Transformer supports autoregressive and masked image generation, enabling tasks like 이미지 completion.</p>
+            <p class="text-gray-700 dark:text-gray-300">An encoder-only Transformer supports autoregressive and masked image generation, enabling tasks like inpainting.</p>
           </div>
           <div class="card-hover bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
             <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Multimodal Generation</h3>
-            <p class="text-gray-700 dark:text-gray-300">An encoder-decoder model enables any‑to‑any generation, supporting chained multimodal outputs across text and images.</p>
+            <p class="text-gray-700 dark:text-gray-300">An encoder-decoder model enables any-to-any generation across text and images.</p>
           </div>
         </div>
       </div>
@@ -184,112 +161,78 @@
 
     <!-- Extensions -->
     <section id="extensions" class="max-w-6xl mx-auto px-4 py-16">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Implemented Extensions</h2>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Extensions</h2>
       <div class="space-y-16">
-        <!-- Video / Audio extension -->
         <article class="space-y-6">
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Implemented Audio and Video modalities <span class="text-brand-500"></span></h3>
-          <p class="text-gray-700 dark:text-gray-300 max-w-3xl">Extended nano4M to generate audios and videos</p>
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Multimodal Dataset &amp; Tokenisers</h3>
+          <p class="text-gray-700 dark:text-gray-300 max-w-3xl">
+            We crawled ~200 000 short YouTube clips and built a pipeline that aligns RGB frames with audio waveforms, then compresses both modalities into discrete tokens via <em>Cosmos</em> (video/image) and <em>Mimi</em> (audio).
+          </p>
           <figure class="mt-4">
-            <img src="images/span_masking_example.jpg" alt="Span‑masking example" class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
-            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Example of video / audio generation.</figcaption>
+            <img src="pipeline.png" loading="lazy" alt="Dataset & tokenisation diagram" class="rounded-xl shadow-md mx-auto max-w-full" />
+            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Diagram of our data-collection &amp; tokenisation pipeline.</figcaption>
           </figure>
         </article>
 
-        <!-- Super Resolution extension -->
-        <article class="space-y-6">
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Super‑Resolution <span class="text-brand-500"></span></h3>
-          <p class="text-gray-700 dark:text-gray-300 max-w-3xl">Trained nano4M to map low‑resolution (224×224) images to high‑resolution (448×448), enhancing output detail.</p>
-          <figure class="mt-4">
-            <img src="images/super_resolution_example.jpg" alt="Super‑resolution example" class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
-            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Comparison of low‑resolution input and high‑resolution output.</figcaption>
-          </figure>
-        </article>
+    <figure class="mt-4">
+      <!-- Grille : 1 colonne sur mobile, 2 colonnes ≥ md -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <!-- Courbe RGB -->
+        <div class="text-center">
+          <img src="rgb.png"
+              alt="Training-loss curve for RGB tokens"
+              class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
+          <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">RGB loss</figcaption>
+        </div>
 
-        <!-- CFG extension -->
-        <article class="space-y-6">
-          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Classifier‑Free Guidance <span class="text-brand-500"></span></h3>
-          <p class="text-gray-700 dark:text-gray-300 max-w-3xl">Implemented classifier‑free guidance by dropping conditioning during training, improving generation quality with adjustable scales.</p>
-          <figure class="mt-4">
-            <img src="images/guidance_example.jpg" alt="Guidance scale example" class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
-            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Generated images with varying guidance scales.</figcaption>
-          </figure>
-        </article>
+        <!-- Courbe Depth -->
+        <div class="text-center">
+          <img src="depth.png"
+              alt="Training-loss curve for depth tokens"
+              class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
+          <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">Depth loss</figcaption>
+        </div>
+      </div>
+
+      <!-- Légende globale (facultative) -->
+      <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center">
+        Training-loss curves for RGB (left) and depth (right) token predictions.
+      </figcaption>
+    </figure>
+
       </div>
     </section>
 
-    <!-- Results -->
+    <!-- Results (only qualitative) -->
     <section id="results" class="bg-gray-50 dark:bg-gray-800 py-16">
       <div class="max-w-6xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Results</h2>
-        <p class="text-gray-700 dark:text-gray-300 mb-10 max-w-3xl mx-auto text-center">Below are quantitative and qualitative results demonstrating nano4M’s performance and the impact of our extensions.</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <!-- Quantitative -->
-          <div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Quantitative Results</h3>
-            <div class="overflow-x-auto">
-              <table class="w-full text-left border-collapse rounded-lg shadow-lg">
-                <thead>
-                  <tr class="bg-brand-100 dark:bg-brand-600/20 text-gray-900 dark:text-gray-100">
-                    <th class="p-3">Metric</th>
-                    <th class="p-3">Baseline</th>
-                    <th class="p-3">With Extensions</th>
-                  </tr>
-                </thead>
-                <tbody class="bg-white dark:bg-gray-900 divide-y divide-gray-200 dark:divide-gray-800">
-                  <tr>
-                    <td class="p-3">Text Generation (BLEU)</td>
-                    <td class="p-3">0.65</td>
-                    <td class="p-3">0.72</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3">Image Reconstruction (PSNR)</td>
-                    <td class="p-3">28.4</td>
-                    <td class="p-3">32.1</td>
-                  </tr>
-                  <tr>
-                    <td class="p-3">Multimodal Alignment (F1)</td>
-                    <td class="p-3">0.78</td>
-                    <td class="p-3">0.85</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Performance metrics comparing baseline nano4M to the enhanced model with extensions.</figcaption>
-          </div>
+        <p class="text-gray-700 dark:text-gray-300 mb-10 max-w-3xl mx-auto text-center">
+          Below are preliminary qualitative samples. Quantitative metrics are not reported because the prototype has not yet converged.
+        </p>
 
-          <!-- Qualitative -->
-          <div>
-            <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Qualitative Results</h3>
-            <p class="text-gray-700 dark:text-gray-300 mb-4 max-w-3xl mx-auto">Examples of generated outputs with and without extensions.</p>
-            <img src="images/qualitative_example.jpg" alt="Qualitative results" class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
-            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Side‑by‑side comparison of generated images with and without extensions.</figcaption>
-          </div>
+        <div class="mb-16">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Qualitative Results</h3>
+          <p class="text-gray-700 dark:text-gray-300 mb-4 max-w-3xl mx-auto text-center">Early 64 × 64 RGB and video frames generated by the prototype.</p>
+          <img src="images/qualitative_example.jpg" loading="lazy" alt="Prototype outputs (low fidelity)" class="rounded-xl shadow-md mx-auto max-w-full" />
+          <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Prototype outputs (quality still poor).</figcaption>
         </div>
 
-        <!-- ================= WandB interactive dashboard ================= -->
-        <div class="mt-16">
+        <!-- W&B -->
+        <div>
           <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Interactive Training Dashboard</h3>
-          <!-- Replace src below with the "Embed ▸ iframe" URL generated in your public W&B report -->
-          <iframe
-            src="https://api.wandb.ai/links/SAGA_COM-304/xxxxxx"  <!-- ✨ TODO: replace xxxxxx with the ID from W&B -->
-            style="border:none;width:100%;height:640px;"
-            loading="lazy"
-            title="WandB Project Dashboard"
-            allowfullscreen
-          ></iframe>
-          <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Hover, zoom, or hide curves to explore training metrics.
-          </figcaption>
+          <iframe src="https://api.wandb.ai/links/SAGA_COM-304/p5nttx6y" title="WandB Project Dashboard" style="border:none;width:100%;height:640px" loading="lazy" allowfullscreen></iframe>
+          <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Hover, zoom, or hide curves to explore training metrics.</figcaption>
         </div>
-        <!-- =============================================================== -->
-
       </div>
     </section>
 
     <!-- Conclusion -->
     <section id="conclusion" class="max-w-4xl mx-auto px-4 py-16">
       <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Conclusion</h2>
-      <p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto text-center">The <strong>nano4M</strong> project successfully implemented a minimalist multimodal model capable of text, image, and cross‑modal generation. Our extensions—span‑masking, super‑resolution, and classifier‑free guidance—significantly improved performance across various tasks. Limitations include computational constraints and challenges with complex datasets. Future work could explore scaling laws or additional modalities like audio.</p>
+      <p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto text-center">
+        We now have a full data-to-model pipeline. Future work will focus on dataset cleaning, more efficient masking, and scaled compute to push beyond the current 64 × 64 limitation.
+      </p>
     </section>
 
     <!-- References -->
@@ -297,9 +240,9 @@
       <div class="max-w-4xl mx-auto px-4">
         <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">References</h2>
         <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300 max-w-3xl mx-auto text-left">
-          <li>Bachmann et al. <i>4M‑21: An any‑to‑any model for tens of tasks and modalities</i>. NeurIPS 2024.</li>
-          <li>Chang et al. <i>Muse: Text‑to‑image generation via masked generative transformers</i>. arXiv 2023.</li>
-          <li>Karpathy. <i>nanoGPT: The simplest, fastest repository for training/finetuning medium‑sized GPTs</i>. GitHub 2023.</li>
+          <li>Bachmann et al. <i>4M-21: An any-to-any model for tens of tasks and modalities</i>. NeurIPS 2024.</li>
+          <li>Chang et al. <i>Muse: Text-to-image generation via masked generative transformers</i>. arXiv 2023.</li>
+          <li>Karpathy. <i>nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs</i>. GitHub 2023.</li>
         </ul>
       </div>
     </section>
@@ -308,38 +251,24 @@
   <!-- Footer -->
   <footer class="bg-brand-600 text-white py-8 text-center">
     <div class="max-w-4xl mx-auto">
-      <p class="text-sm">Developed by <span class="font-semibold">SAGA</span> | COM‑304 Spring 2025 | <a href="https://github.com/SAGA-COM-304/SAGA_COM-304" class="underline hover:text-brand-100" target="_blank" rel="noopener noreferrer">GitHub ↗</a></p>
+      <p class="text-sm">
+        Developed by <span class="font-semibold">SAGA</span> | COM-304 Spring 2025 |
+        <a href="https://github.com/SAGA-COM-304/SAGA_COM-304" target="_blank" rel="noopener noreferrer" class="underline hover:text-brand-100">GitHub ↗</a>
+      </p>
     </div>
   </footer>
 
-  <!-- ======== Tiny JS for dark‑mode & mobile nav ========= -->
+  <!-- Tiny JS (dark-mode + mobile nav) -->
   <script>
-    // Dark‑mode toggle
-    const darkToggle = document.getElementById('dark-toggle');
-    const iconSun = document.getElementById('icon-sun');
-    const iconMoon = document.getElementById('icon-moon');
-    const userPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const savedTheme = localStorage.getItem('theme');
-    const isDark = savedTheme ? savedTheme === 'dark' : userPrefersDark;
-
-    document.documentElement.classList.toggle('dark', isDark);
-    iconMoon.classList.toggle('hidden', !isDark);
-    iconSun.classList.toggle('hidden', isDark);
-
-    darkToggle.addEventListener('click', () => {
-      const currentlyDark = document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', currentlyDark ? 'dark' : 'light');
-      iconMoon.classList.toggle('hidden', !currentlyDark);
-      iconSun.classList.toggle('hidden', currentlyDark);
-    });
-
-    // Mobile nav toggle
-    const menuButton = document.getElementById('menu-button');
-    const mobileNav = document.getElementById('mobile-nav');
-    menuButton.addEventListener('click', () => {
-      const isOpen = mobileNav.style.maxHeight && mobileNav.style.maxHeight !== '0px';
-      mobileNav.style.maxHeight = isOpen ? '0' : mobileNav.scrollHeight + 'px';
-    });
+    const darkToggle=document.getElementById('dark-toggle'),sun=document.getElementById('icon-sun'),moon=document.getElementById('icon-moon'),
+          prefersDark=window.matchMedia('(prefers-color-scheme: dark)').matches,
+          saved=localStorage.getItem('theme'),isDark=saved?saved==='dark':prefersDark;
+    document.documentElement.classList.toggle('dark',isDark);moon.classList.toggle('hidden',!isDark);sun.classList.toggle('hidden',isDark);
+    darkToggle.addEventListener('click',()=>{const d=document.documentElement.classList.toggle('dark');
+      localStorage.setItem('theme',d?'dark':'light');moon.classList.toggle('hidden',!d);sun.classList.toggle('hidden',d);});
+    const menu=document.getElementById('menu-button'),mobile=document.getElementById('mobile-nav');
+    menu.addEventListener('click',()=>{const open=mobile.style.maxHeight&&mobile.style.maxHeight!=='0px';
+      mobile.style.maxHeight=open?'0':mobile.scrollHeight+'px';});
   </script>
 </body>
 </html>
