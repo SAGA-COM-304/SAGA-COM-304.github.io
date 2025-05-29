@@ -108,7 +108,7 @@
     </svg>
     <div class="relative max-w-7xl mx-auto px-4 py-24 text-center">
       <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4">nano4M Project</h1>
-      <p class="max-w-2xl mx-auto text-lg sm:text-xl mb-8">A minimalist multimodal prototype built for EPFL’s COM-304 course.</p>
+      <p class="max-w-2xl mx-auto text-lg sm:text-xl mb-8">A minimalist multimodal prototype built for EPFL's COM-304 course.</p>
       <div class="flex flex-col sm:flex-row justify-center gap-4">
         <a href="#capabilities" class="inline-block px-6 py-3 text-base font-semibold rounded-lg bg-white/10 backdrop-blur hover:bg-white/20 border border-white">Discover more</a>
         <a href="https://github.com/SAGA-COM-304/SAGA_COM-304" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 text-base font-semibold rounded-lg bg-white text-brand-600 hover:bg-gray-100">GitHub ↗</a>
@@ -166,86 +166,139 @@
         <article class="space-y-6">
           <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Multimodal Dataset &amp; Tokenisers</h3>
           <p class="text-gray-700 dark:text-gray-300 max-w-3xl">
-            We crawled ~200 000 short YouTube clips and built a pipeline that aligns RGB frames with audio waveforms, then compresses both modalities into discrete tokens via <em>Cosmos</em> (video/image) and <em>Mimi</em> (audio).
+            We crawled ~200 000 short YouTube clips and built a pipeline that aligns RGB frames with audio waveforms.
           </p>
           <figure class="mt-4">
-            <img src="pipeline.png" loading="lazy" alt="Dataset & tokenisation diagram" class="rounded-xl shadow-md mx-auto max-w-full" />
+            <img src="pipeline.jpg" loading="lazy" alt="Dataset & tokenisation diagram" class="rounded-xl shadow-md mx-auto max-w-full" />
             <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Diagram of our data-collection &amp; tokenisation pipeline.</figcaption>
           </figure>
         </article>
 
-    <figure class="mt-4">
-      <!-- Grille : 1 colonne sur mobile, 2 colonnes ≥ md -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-        <!-- Courbe RGB -->
-        <div class="text-center">
-          <img src="rgb.png"
-              alt="Training-loss curve for RGB tokens"
-              class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
-          <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">RGB loss</figcaption>
+        <!-- Conversion Results - Version améliorée -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          <!-- RGB to Video -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">RGB → Video</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/pecheur.png" alt="RGB Input Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Input Image</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <video src="video/pecheur_rec.mp4" class="w-full h-full object-cover" muted loop autoplay></video>
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Generated Video</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Video to RGB -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">Video → RGB</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <video src="video/pecheur.mp4" class="w-full h-full object-cover" muted loop autoplay></video>
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Input Video</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/pecheur_flou.png" alt="Extracted RGB Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">RGB output</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RGB to Depth -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">RGB → Depth</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/tambour.jpg" alt="RGB Input Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">RGB Image</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Original scene</p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/tambour_depth.jpg" alt="Generated Depth Map" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Depth Map</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Estimated depth</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depth to RGB -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">Depth → RGB</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/pecheur_depth.png" alt="Depth Map Input" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Depth Map</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Input depth</p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/recon_pecheur.png" alt="Generated RGB Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Reconstructed</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">RGB output</p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <!-- Courbe Depth -->
-        <div class="text-center">
-          <img src="depth.png"
-              alt="Training-loss curve for depth tokens"
-              class="rounded-xl shadow-md mx-auto max-w-full" loading="lazy" />
-          <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">Depth loss</figcaption>
-        </div>
-      </div>
-
-      <!-- Légende globale (facultative) -->
-      <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-4 text-center">
-        Training-loss curves for RGB (left) and depth (right) token predictions.
-      </figcaption>
-    </figure>
-
       </div>
     </section>
 
-    <!-- Results (only qualitative) -->
-    <section id="results" class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Results</h2>
-        <p class="text-gray-700 dark:text-gray-300 mb-10 max-w-3xl mx-auto text-center">
-          Below are preliminary qualitative samples. Quantitative metrics are not reported because the prototype has not yet converged.
-        </p>
-
-        <div class="mb-16">
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Qualitative Results</h3>
-          <p class="text-gray-700 dark:text-gray-300 mb-4 max-w-3xl mx-auto text-center">Early 64 × 64 RGB and video frames generated by the prototype.</p>
-          <img src="images/qualitative_example.jpg" loading="lazy" alt="Prototype outputs (low fidelity)" class="rounded-xl shadow-md mx-auto max-w-full" />
-          <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Prototype outputs (quality still poor).</figcaption>
-        </div>
-
-        <!-- W&B -->
-        <div>
-          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Interactive Training Dashboard</h3>
-          <iframe src="https://api.wandb.ai/links/SAGA_COM-304/p5nttx6y" title="WandB Project Dashboard" style="border:none;width:100%;height:640px" loading="lazy" allowfullscreen></iframe>
-          <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Hover, zoom, or hide curves to explore training metrics.</figcaption>
-        </div>
+    <!-- W&B Dashboard - Section séparée avec pleine largeur -->
+    <section class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-4 text-center">Interactive Training Dashboard</h3>
+        <iframe src="https://api.wandb.ai/links/SAGA_COM-304/p5nttx6y" title="WandB Project Dashboard" style="border:none;width:100%;height:640px" loading="lazy" allowfullscreen></iframe>
+        <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Hover, zoom, or hide curves to explore training metrics.</figcaption>
       </div>
     </section>
 
-    <!-- Conclusion -->
+    <!-- Conclusion and Possible Improvements -->
     <section id="conclusion" class="max-w-4xl mx-auto px-4 py-16">
-      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Conclusion</h2>
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">Conclusion & Possible Improvements Pathways</h2>
       <p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto text-center">
-        We now have a full data-to-model pipeline. Future work will focus on dataset cleaning, more efficient masking, and scaled compute to push beyond the current 64 × 64 limitation.
-      </p>
+       The model generate reasonnable outputs as seen in the result section but we could still improve it. The possible next steps would be to try the whole pipeline on a different dataset - a more tiny or concentrated one -  as VggSound provide us too heteregeneous videos.
     </section>
-
-    <!-- References -->
-    <section id="references" class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">References</h2>
-        <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300 max-w-3xl mx-auto text-left">
-          <li>Bachmann et al. <i>4M-21: An any-to-any model for tens of tasks and modalities</i>. NeurIPS 2024.</li>
-          <li>Chang et al. <i>Muse: Text-to-image generation via masked generative transformers</i>. arXiv 2023.</li>
-          <li>Karpathy. <i>nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs</i>. GitHub 2023.</li>
-        </ul>
-      </div>
-    </section>
+  <!-- References -->
+  <section id="references" class="bg-gray-50 dark:bg-gray-800 py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">References</h2>
+      <ul class="list-disc space-y-2 pl-5 text-gray-700 dark:text-gray-300 max-w-3xl mx-auto text-left">
+        <li>Bachmann et al. <i>4M-21: An any-to-any model for tens of tasks and modalities</i>. NeurIPS 2024.</li>
+        <li>Chang et al. <i>Muse: Text-to-image generation via masked generative transformers</i>. arXiv 2023.</li>
+        <li>Karpathy. <i>nanoGPT: The simplest, fastest repository for training/finetuning medium-sized GPTs</i>. GitHub 2023.</li>
+        <li>A. Défossez et al. <i>Moshi: a speech-text foundation model for real-time dialogue</i>. arXiv:2410.00037, Oct. 2024.</li>
+        <li>NVIDIA et al. <i>Cosmos World Foundation Model Platform for Physical AI</i>. arXiv:2501.03575, Mar. 2025.</li>
+        <li>DepthAnything. <i>Depth-Anything-V2</i>. GitHub repository. Available: <a href="https://github.com/DepthAnything/Depth-Anything-V2" class="text-blue-600 hover:text-blue-800 underline">https://github.com/DepthAnything/Depth-Anything-V2</a></li>
+        <li>H. Chen, W. Xie, A. Vedaldi, and A. Zisserman. <i>VGGSound: A Large-scale Audio-Visual Dataset</i>. arXiv:2004.14368, Sep. 2020.</li>
+        <li>S. Ji et al. <i>WavTokenizer: an Efficient Acoustic Discrete Codec Tokenizer for Audio Language Modeling</i>. arXiv:2408.16532, Feb. 2025.</li>
+      </ul>
+    </div>
+  </section>
   </main>
 
   <!-- Footer -->
