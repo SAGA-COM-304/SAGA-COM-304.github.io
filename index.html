@@ -159,151 +159,117 @@
         </div>
       </div>
     </section>
+        
 
     <!-- Extensions -->
-    <section id="extensions" class="bg-gray-50 dark:bg-gray-800 py-16">
-      <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Extensions</h2>
-        
-        <div class="space-y-16">
-          <!-- Dataset Pipeline -->
-          <article class="space-y-6">
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Multimodal Dataset & Tokenisers</h3>
-            <p class="text-gray-700 dark:text-gray-300 max-w-4xl leading-relaxed">
-            <p class="text-gray-700 dark:text-gray-300 max-w-4xl leading-relaxed">
-             
-            </p>
-            
-            <figure class="mt-6">
-              <img src="pipeline2.jpg" loading="lazy" alt="Dataset & tokenisation diagram" class="rounded-xl shadow-md mx-auto max-w-full" />
-              <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Comprehensive diagram of our data-collection, preprocessing, and tokenisation pipeline showing the flow from raw multimodal data to discrete token representations.</figcaption>
-            </figure>
-            
+    <section id="extensions" class="max-w-6xl mx-auto px-4 py-16">
+      <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Extensions</h2>
+      <div class="space-y-16">
+        <article class="space-y-6">
+          <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Multimodal Dataset &amp; Tokenisers</h3>
+          <p class="text-gray-700 dark:text-gray-300 max-w-3xl">
+            We crawled ~200 000 short YouTube clips and built a pipeline that aligns RGB frames with audio waveforms.
+          </p>
+          <figure class="mt-4">
+            <img src="pipeline2.jpg" loading="lazy" alt="Dataset & tokenisation diagram" class="rounded-xl shadow-md mx-auto max-w-full" />
+            <figcaption class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">Diagram of our data-collection &amp; tokenisation pipeline.</figcaption>
+          </figure>
+        </article>
 
-          <!-- Cross-Modal Generation Results -->
-        <section id="results" class="py-16"></section>
-            <div class="max-w-7xl mx-auto px-4">
-              <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Results & Performance Analysis</h2>
-        
-          <article>
-            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-8">Cross-Modal Generation Capabilities</h3>
-            <p class="text-gray-700 dark:text-gray-300 max-w-4xl leading-relaxed mb-8">
-            </p>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <!-- RGB to Video -->
-              <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
-                <h4 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">RGB → Video Generation</h4>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
-                  Temporal interpolation and motion synthesis from static images using learned motion priors.
-                </p>
-                <div class="flex items-center justify-center gap-8">
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <img src="images/pecheur.png" alt="RGB Input Image" class="w-full h-full object-cover" />
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">Input Image</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Single frame</p>
-                  </div>
-                  <div class="text-3xl text-gray-400 font-light">→</div>
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <video src="video/pecheur_rec.mp4" class="w-full h-full object-cover" muted loop autoplay></video>
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">Generated Video</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">2.5s sequence</p>
-                  </div>
+        <!-- Results -->
+
+  <section id="results" class="py-16">
+      <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Results & Performance Analysis</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          
+          <!-- RGB to Video -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">RGB → Video</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/pecheur.png" alt="RGB Input Image" class="w-full h-full object-cover" />
                 </div>
-                <div class="mt-4 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 p-3 rounded">
-                  <strong>Technical Note:</strong> Video generation uses temporal conditioning with learned motion embeddings, achieving 24 FPS output with smooth transitions.
-                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Input Image</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
               </div>
-
-              <!-- Video to RGB -->
-              <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
-                <h4 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">Video → RGB Extraction</h4>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
-                  Intelligent keyframe selection and temporal averaging for optimal static representation.
-                </p>
-                <div class="flex items-center justify-center gap-8">
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <video src="video/pecheur.mp4" class="w-full h-full object-cover" muted loop autoplay></video>
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">Input Video</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Multi-frame input</p>
-                  </div>
-                  <div class="text-3xl text-gray-400 font-light">→</div>
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <img src="images/pecheur_flou.png" alt="Extracted RGB Image" class="w-full h-full object-cover" />
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">RGB Output</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Optimized frame</p>
-                  </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <video src="video/pecheur_rec.mp4" class="w-full h-full object-cover" muted loop autoplay></video>
                 </div>
-                <div class="mt-4 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 p-3 rounded">
-                  <strong>Algorithm:</strong> Attention-weighted temporal pooling identifies most representative frames based on content saliency.
-                </div>
-              </div>
-
-              <!-- RGB to Depth -->
-              <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
-                <h4 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">RGB → Depth Estimation</h4>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
-                  Monocular depth estimation using learned geometric priors and spatial attention mechanisms.
-                </p>
-                <div class="flex items-center justify-center gap-8">
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <img src="images/tambour.jpg" alt="RGB Input Image" class="w-full h-full object-cover" />
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">RGB Image</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Original scene</p>
-                  </div>
-                  <div class="text-3xl text-gray-400 font-light">→</div>
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <img src="images/tambour_depth.jpg" alt="Generated Depth Map" class="w-full h-full object-cover" />
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">Depth Map</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Estimated depth</p>
-                  </div>
-                </div>
-                <div class="mt-4 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 p-3 rounded">
-                  <strong>Performance:</strong> Mean relative error: 0.127, achieving competitive results compared to DepthAnything baseline.
-                </div>
-              </div>
-
-              <!-- Depth to RGB -->
-              <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
-                <h4 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">Depth → RGB Reconstruction</h4>
-                <p class="text-sm text-gray-700 dark:text-gray-300 mb-6 text-center">
-                  Novel 3D-aware image synthesis using depth conditioning and learned texture priors.
-                </p>
-                <div class="flex items-center justify-center gap-8">
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <img src="images/pecheur_depth.png" alt="Depth Map Input" class="w-full h-full object-cover" />
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">Depth Map</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Input geometry</p>
-                  </div>
-                  <div class="text-3xl text-gray-400 font-light">→</div>
-                  <div class="text-center">
-                    <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
-                      <img src="images/recon_pecheur.png" alt="Generated RGB Image" class="w-full h-full object-cover" />
-                    </div>
-                    <p class="text-base font-medium text-gray-700 dark:text-gray-300">Reconstructed RGB</p>
-                    <p class="text-xs text-gray-500 dark:text-gray-400">Synthesized image</p>
-                  </div>
-                </div>
-                <div class="mt-4 text-xs text-gray-600 dark:text-gray-400 bg-gray-50 dark:bg-gray-800 p-3 rounded">
-                  <strong>Innovation:</strong> First end-to-end depth-to-RGB generation in nano4M framework, using geometric awareness for realistic texturing.
-                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Generated Video</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
               </div>
             </div>
-          </article>
+          </div>
+
+          <!-- Video to RGB -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">Video → RGB</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <video src="video/pecheur.mp4" class="w-full h-full object-cover" muted loop autoplay></video>
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Input Video</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/pecheur_flou.png" alt="Extracted RGB Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">RGB output</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400"></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- RGB to Depth -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">RGB → Depth</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/tambour.jpg" alt="RGB Input Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">RGB Image</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Original scene</p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/tambour_depth.jpg" alt="Generated Depth Map" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Depth Map</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Estimated depth</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Depth to RGB -->
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-8 shadow-lg">
+            <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6 text-center">Depth → RGB</h3>
+            <div class="flex items-center justify-center gap-8">
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/pecheur_depth.png" alt="Depth Map Input" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Depth Map</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Input depth</p>
+              </div>
+              <div class="text-3xl text-gray-400 font-light">→</div>
+              <div class="text-center">
+                <div class="w-48 h-36 rounded-lg mx-auto mb-3 overflow-hidden bg-gray-200 dark:bg-gray-700 shadow-md">
+                  <img src="images/recon_pecheur.png" alt="Generated RGB Image" class="w-full h-full object-cover" />
+                </div>
+                <p class="text-base font-medium text-gray-700 dark:text-gray-300">Reconstructed</p>
+                <p class="text-sm text-gray-500 dark:text-gray-400">RGB output</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
